@@ -30,16 +30,16 @@ export default function Header({ title = "Dashboard" }) {
         </button>
 
         {/* User Menu */}
-        <button className="flex items-center gap-2 sm:gap-3 hover:bg-gray-100 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg transition">
+        <button className="flex items-center sm:gap-3 bg-gray-100 rounded-full px-2 py-1 transition">
           <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-linear-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white font-semibold text-xs sm:text-sm">
-            {user?.fullName?.charAt(0) || "M"}
+            {user?.fullName?.charAt(0)}
           </div>
           <span className="hidden sm:inline text-xs lg:text-sm font-medium max-w-[100px] md:max-w-[150px] xl:max-w-none truncate">
-            {user?.fullName || "Mahfuzul Nabil"}
+            {user?.fullName}
           </span>
           <ChevronDown
             size={14}
-            className="sm:w-4 sm:h-4 text-gray-600 hidden sm:block"
+            className="sm:w-4 sm:h-4 text-gray-600 hidden sm:block ml-3 mr-2"
           />
         </button>
       </div>

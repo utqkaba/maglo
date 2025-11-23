@@ -69,7 +69,8 @@ export default function Sidebar() {
         className={`
         bg-(--color-sidebar-bg) flex flex-col
         w-[250px] md:w-[220px] lg:w-[248px] xl:w-[280px] 2xl:w-[320px]
-        fixed inset-y-0 left-0 z-40 h-screen
+        fixed inset-y-0 left-0 z-40
+        overflow-y-auto   
         transform transition-transform duration-300
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
         lg:static lg:translate-x-0 lg:shrink-0
@@ -122,7 +123,7 @@ export default function Sidebar() {
                   key={item.name}
                   type="button"
                   disabled={isLoggingOut}
-                  className={`cursor-pointer w-full flex items-center gap-2 md:gap-2.5 lg:gap-3 px-3 md:px-3.5 lg:px-4 py-2.5 md:py-2.5 lg:py-3 rounded-lg mb-1.5 md:mb-1.5 lg:mb-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 transition text-left ${
+                  className={`cursor-pointer w-full flex items-center gap-2 md:gap-2.5 lg:gap-3 px-3 md:px-3.5 lg:px-4 py-2.5 md:py-2.5 lg:py-3 rounded-lg mb-2 md:mb-2 lg:mb-8 text-xs md:text-sm text-gray-600 hover:bg-gray-100 transition text-left ${
                     isLoggingOut ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   onClick={() => handleItemClick(item)}
