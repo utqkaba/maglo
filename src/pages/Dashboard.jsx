@@ -1,5 +1,6 @@
 import DashboardLayout from "../layouts/DashboardLayout";
 import DashboardStats from "../components/DashboardStats";
+import RecentTransactions from "../components/RecentTransactions";
 
 export default function Dashboard() {
   return (
@@ -42,20 +43,7 @@ export default function Dashboard() {
             </section>
 
             {/* Recent Transactions */}
-            <section className="bg-white rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-5 lg:p-6 min-h-[220px] lg:min-h-[293px]">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-sm sm:text-base font-semibold">
-                  Recent Transaction
-                </h2>
-                <button className="text-xs sm:text-sm text-teal-600 hover:text-teal-700 flex items-center gap-1">
-                  View All <span>→</span>
-                </button>
-              </div>
-
-              <div className="h-36 sm:h-44 lg:h-52 flex items-center justify-center text-gray-300 text-xs sm:text-sm">
-                Table goes here
-              </div>
-            </section>
+            <RecentTransactions />
           </div>
 
           {/* ---------------- SAĞ SÜTUN ---------------- */}
@@ -79,8 +67,8 @@ export default function Dashboard() {
                 <h2 className="text-sm sm:text-base font-semibold">
                   Scheduled Transfers
                 </h2>
-                <button className="text-xs sm:text-sm text-teal-600 hover:text-teal-700 flex items-center gap-1">
-                  View All <span>→</span>
+                <button className="text-xs sm:text-sm text-(--color-view) flex items-center gap-1">
+                  View All <span className="ml-1 mb-1">{">"}</span>
                 </button>
               </div>
               <div className="h-48 sm:h-56 lg:h-64 flex items-center justify-center text-gray-300 text-xs sm:text-sm">

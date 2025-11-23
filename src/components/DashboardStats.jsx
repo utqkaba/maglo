@@ -1,5 +1,5 @@
 import { Wallet2, TrendingDown, PiggyBank } from "lucide-react";
-import { useFinancialSummary } from "../hooks/useDashboard";
+import { useFinancialSummary } from "../hooks/useFinancialSummary";
 
 export default function DashboardStats() {
   const { data, isLoading, isError, error } = useFinancialSummary();
