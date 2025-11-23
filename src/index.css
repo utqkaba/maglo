@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+:root {
+  --color-maglo: #c8ee44;
+  --color-sidebar-bg: #fafafa;
+  --font-sans: "Kumbh Sans", sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+}
