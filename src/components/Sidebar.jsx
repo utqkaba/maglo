@@ -15,7 +15,6 @@ import {
 
 import { useLogout } from "../hooks/useAuth";
 
-// MENU CONFIG
 const menuItems = [
   { name: "Dashboard", path: "/dashboard", icon: MdHomeFilled },
   { name: "Transactions", path: "/transactions", icon: MdInsertChart },
@@ -79,12 +78,10 @@ export default function Sidebar() {
         lg:static lg:translate-x-0 lg:shrink-0
       `}
       >
-        {/* Logo */}
         <div className="pt-6 md:pt-7 lg:pt-8 pb-2 px-6 md:px-7 lg:px-8 shrink-0">
           <img src="/Logo.png" alt="Maglo Logo" className="h-6 md:h-7 lg:h-8" />
         </div>
 
-        {/* Main Menu */}
         <nav className="flex-1 px-4 md:px-5 lg:px-6 mt-6 md:mt-7 lg:mt-8 overflow-y-auto">
           {menuItems.map((item) => {
             const Icon = item.icon;
@@ -110,7 +107,6 @@ export default function Sidebar() {
           })}
         </nav>
 
-        {/* Bottom */}
         <div className="px-4 md:px-5 lg:px-6 pb-6 md:pb-8 lg:pb-24 shrink-0">
           {bottomItems.map((item) => {
             const Icon = item.icon;

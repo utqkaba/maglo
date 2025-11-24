@@ -34,9 +34,8 @@ export default function Wallet() {
         </button>
       </div>
 
-      {/* Kartlar Container */}
       <div className="relative w-full mx-auto h-[260px] max-w-[354px]">
-        {/* ---- Siyah Kart ---- */}
+        {/* Black card */}
         <div
           className="
             rounded-2xl text-white px-4 sm:px-5 py-3 sm:py-4 
@@ -73,7 +72,7 @@ export default function Wallet() {
           </div>
         </div>
 
-        {/* ---- Blur Beyaz Kart ---- */}
+        {/* Blur white card */}
         <div
           className="
           absolute left-0 right-0 mx-auto

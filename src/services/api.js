@@ -21,9 +21,7 @@ export const apiClient = async (endpoint, options = {}) => {
     const response = await fetch(url, config);
     const data = await response.json();
 
-    // 401 Unauthorized
     if (response.status === 401) {
-      // Token expire olmuş, logout
       useAuthStore.getState().logout();
       window.location.href = "/signin";
       throw new Error(data.message || "Unauthorized");

@@ -5,7 +5,6 @@ import { useProfile } from "../hooks/useAuth";
 export default function Header({ title = "Dashboard" }) {
   const { user } = useAuthStore();
 
-  // Profile'ı fetch et (background'da)
   useProfile();
 
   return (

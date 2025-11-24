@@ -74,22 +74,19 @@ export const useRefreshToken = () => {
   });
 };
 
-// Profile Hook - Yeni!
 export const useProfile = () => {
   const { token, setUser } = useAuthStore();
 
   return useQuery({
     queryKey: ["user-profile"],
     queryFn: authService.getProfile,
-    enabled: !!token, // Token varsa çalış
-    staleTime: 5 * 60 * 1000, // 5 dakika fresh
+    enabled: !!token,
+    staleTime: 5 * 60 * 1000,
     onSuccess: (response) => {
-      // Profile bilgisini store'a kaydet
       setUser(response);
     },
     onError: (error) => {
       console.error("Profile fetch failed:", error);
-      // 401 durumunda logout (api.js'de zaten handle ediliyor)
     },
   });
 };
