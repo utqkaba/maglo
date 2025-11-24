@@ -62,7 +62,6 @@ export default function ScheduledTransfers() {
             key={t.id}
             className="flex items-center justify-between pb-4 border-b border-gray-100 last:border-none"
           >
-            {/* LEFT SIDE */}
             <div className="flex items-center gap-4">
               <img
                 src={t.image}
@@ -71,11 +70,11 @@ export default function ScheduledTransfers() {
               />
 
               <div className="flex flex-col">
-                <span className="text-[13px] font-medium text-gray-900">
+                <span className="text-sm font-medium text-gray-900">
                   {t.name}
                 </span>
 
-                <span className="text-[11px] text-gray-400">
+                <span className="text-xs text-gray-400">
                   {new Date(t.date).toLocaleDateString("en-GB", {
                     day: "2-digit",
                     month: "short",
@@ -90,9 +89,9 @@ export default function ScheduledTransfers() {
               </div>
             </div>
 
-            {/* RIGHT: AMOUNT */}
-            <span className="text-[14px] font-semibold text-gray-900">
-              {t.amount < 0 ? "-" : ""}
+            {/* AMOUNT */}
+            <span className="text-base font-semibold text-gray-900">
+              {t.amount < 0 ? <span className="mr-2">-</span> : ""}
               {t.currency}
               {Math.abs(t.amount).toLocaleString("en-US", {
                 minimumFractionDigits: 2,
