@@ -3,6 +3,7 @@ import { useScheduledTransfers } from "../hooks/useScheduledTransfers";
 export default function ScheduledTransfers() {
   const { data, isLoading, error } = useScheduledTransfers();
 
+  // Loading state
   if (isLoading) {
     return (
       <section className="bg-white rounded-2xl shadow-sm p-6 min-h-[350px]">
@@ -34,6 +35,7 @@ export default function ScheduledTransfers() {
     );
   }
 
+  // Error state
   if (error) {
     return (
       <section className="bg-white rounded-2xl shadow-sm p-6 min-h-[350px] flex items-center justify-center text-red-500">

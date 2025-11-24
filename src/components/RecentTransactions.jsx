@@ -57,7 +57,6 @@ export default function RecentTransactions() {
         </button>
       </div>
 
-      {/* TABLE HEADER */}
       <div className="grid grid-cols-[2fr_1fr_1fr_1fr] px-1 mb-3 text-xs font-medium text-gray-400">
         <span>NAME/BUSINESS</span>
         <span>TYPE</span>
@@ -65,14 +64,12 @@ export default function RecentTransactions() {
         <span className="text-right">DATE</span>
       </div>
 
-      {/* LIST */}
       <div className="space-y-4">
         {transactions.slice(0, 3).map((row) => (
           <div
             key={row.id}
             className="grid grid-cols-[2fr_1fr_1fr_1fr] items-center pb-3 border-b border-gray-100 last:border-none"
           >
-            {/* NAME */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden">
                 <img src={row.image} className="w-6 h-6 object-contain" />
@@ -84,21 +81,14 @@ export default function RecentTransactions() {
               </div>
             </div>
 
-            {/* TYPE */}
             <span className="text-sm text-gray-500">{row.type}</span>
 
-            {/* AMOUNT */}
-            <span
-              className={`text-sm font-semibold text-right ${
-                row.amount < 0 ? "text-red-500" : "text-green-600"
-              }`}
-            >
+            <span className={`text-sm font-semibold text-right text-black`}>
               {row.amount < 0
-                ? `-₺${Math.abs(row.amount).toFixed(2)}`
+                ? `₺${Math.abs(row.amount).toFixed(2)}`
                 : `₺${row.amount.toFixed(2)}`}
             </span>
 
-            {/* DATE */}
             <span className="text-xs text-right text-gray-400">
               {new Date(row.date).toLocaleDateString("en-GB", {
                 day: "2-digit",
