@@ -34,4 +34,11 @@ export const authService = {
       method: "POST",
     });
   },
+
+  // Get Profile
+  getProfile: async () => {
+    return await apiClient("/users/profile", {
+      method: "GET",
+    });
+  },
 };
