@@ -1,29 +1,32 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 import {
-  LayoutDashboard,
-  ArrowLeftRight,
-  FileText,
-  Wallet,
-  Settings,
-  HelpCircle,
-  LogOut,
-  Menu,
-  X,
-} from "lucide-react";
+  MdHomeFilled,
+  MdInsertChart,
+  MdDescription,
+  MdAccountBalanceWallet,
+  MdSettings,
+  MdHelp,
+  MdLogout,
+  MdMenu,
+  MdClose,
+} from "react-icons/md";
+
 import { useLogout } from "../hooks/useAuth";
 
+// MENU CONFIG
 const menuItems = [
-  { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-  { name: "Transactions", path: "/transactions", icon: ArrowLeftRight },
-  { name: "Invoices", path: "/invoices", icon: FileText },
-  { name: "My Wallets", path: "/wallets", icon: Wallet },
-  { name: "Settings", path: "/settings", icon: Settings },
+  { name: "Dashboard", path: "/dashboard", icon: MdHomeFilled },
+  { name: "Transactions", path: "/transactions", icon: MdInsertChart },
+  { name: "Invoices", path: "/invoices", icon: MdDescription },
+  { name: "My Wallets", path: "/wallets", icon: MdAccountBalanceWallet },
+  { name: "Settings", path: "/settings", icon: MdSettings },
 ];
 
 const bottomItems = [
-  { name: "Help", path: "/help", icon: HelpCircle },
-  { name: "Logout", icon: LogOut, isAction: true },
+  { name: "Help", path: "/help", icon: MdHelp },
+  { name: "Logout", icon: MdLogout, isAction: true },
 ];
 
 export default function Sidebar() {
@@ -53,10 +56,10 @@ export default function Sidebar() {
         className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg"
         aria-label="Toggle menu"
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
       </button>
 
-      {/* Overlay for mobile */}
+      {/* Overlay */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
@@ -70,7 +73,7 @@ export default function Sidebar() {
         bg-(--color-sidebar-bg) flex flex-col
         w-[250px] md:w-[220px] lg:w-[248px] xl:w-[280px] 2xl:w-[320px]
         fixed inset-y-0 left-0 z-40
-        overflow-y-auto   
+        overflow-y-auto
         transform transition-transform duration-300
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
         lg:static lg:translate-x-0 lg:shrink-0
@@ -92,7 +95,7 @@ export default function Sidebar() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-2 md:gap-2.5 lg:gap-3 px-3 md:px-3.5 lg:px-4 py-2.5 md:py-2.5 lg:py-3 rounded-lg mb-1.5 md:mb-1.5 lg:mb-2 text-xs md:text-sm transition
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg mb-2 text-sm transition
                   ${
                     active
                       ? "bg-(--color-maglo) text-black font-medium"
@@ -100,49 +103,43 @@ export default function Sidebar() {
                   }
                 `}
               >
-                <Icon
-                  size={18}
-                  className="md:w-[19px] md:h-[19px] lg:w-5 lg:h-5"
-                />
+                <Icon size={20} />
                 <span>{item.name}</span>
               </Link>
             );
           })}
         </nav>
 
-        {/* Bottom Menu */}
+        {/* Bottom */}
         <div className="px-4 md:px-5 lg:px-6 pb-6 md:pb-8 lg:pb-24 shrink-0">
           {bottomItems.map((item) => {
             const Icon = item.icon;
-            const isLogoutBtn = item.name === "Logout";
 
-            // Logout butonu
-            if (isLogoutBtn) {
+            if (item.isAction) {
               return (
                 <button
                   key={item.name}
                   type="button"
                   disabled={isLoggingOut}
-                  className={`cursor-pointer w-full flex items-center gap-2 md:gap-2.5 lg:gap-3 px-3 md:px-3.5 lg:px-4 py-2.5 md:py-2.5 lg:py-3 rounded-lg mb-2 md:mb-2 lg:mb-8 text-xs md:text-sm text-gray-600 hover:bg-gray-100 transition text-left ${
+                  onClick={() => handleItemClick(item)}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-3 text-sm text-gray-600 hover:bg-gray-100 transition ${
                     isLoggingOut ? "opacity-50 cursor-not-allowed" : ""
                   }`}
-                  onClick={() => handleItemClick(item)}
                 >
-                  <Icon size={18} className="md:w-5 md:h-5 lg:w-5 lg:h-5" />
+                  <Icon size={20} />
                   <span>{isLoggingOut ? "Logging out..." : item.name}</span>
                 </button>
               );
             }
 
-            // Help linki
             return (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className="w-full flex items-center gap-2 md:gap-2.5 lg:gap-3 px-3 md:px-3.5 lg:px-4 py-2.5 md:py-2.5 lg:py-3 rounded-lg mb-1.5 md:mb-1.5 lg:mb-2 text-xs md:text-sm text-gray-600 hover:bg-gray-100 transition text-left"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-3 text-sm text-gray-600 hover:bg-gray-100 transition"
               >
-                <Icon size={18} className="md:w-5 md:h-5 lg:w-5 lg:h-5" />
+                <Icon size={20} />
                 <span>{item.name}</span>
               </Link>
             );

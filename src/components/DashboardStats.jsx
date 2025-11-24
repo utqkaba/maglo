@@ -1,4 +1,4 @@
-import { Wallet2, TrendingDown, PiggyBank } from "lucide-react";
+import { MdAccountBalanceWallet } from "react-icons/md";
 import { useFinancialSummary } from "../hooks/useFinancialSummary";
 
 export default function DashboardStats() {
@@ -44,7 +44,6 @@ export default function DashboardStats() {
     }).format(amount);
   };
 
-  // Map API data to stats
   const stats = [
     {
       label: "Total balance",
@@ -52,7 +51,7 @@ export default function DashboardStats() {
         data?.data?.totalBalance?.amount,
         data?.data?.totalBalance?.currency
       ),
-      icon: Wallet2,
+      icon: MdAccountBalanceWallet,
       highlight: true,
     },
     {
@@ -61,7 +60,7 @@ export default function DashboardStats() {
         data?.data?.totalExpense?.amount,
         data?.data?.totalExpense?.currency
       ),
-      icon: TrendingDown,
+      icon: MdAccountBalanceWallet,
       highlight: false,
     },
     {
@@ -70,7 +69,7 @@ export default function DashboardStats() {
         data?.data?.totalSavings?.amount,
         data?.data?.totalSavings?.currency
       ),
-      icon: PiggyBank,
+      icon: MdAccountBalanceWallet,
       highlight: false,
     },
   ];
@@ -89,7 +88,7 @@ export default function DashboardStats() {
               h-[90px] sm:h-[100px] lg:h-[105px]
               ${
                 s.highlight
-                  ? "bg-[#25282E] text-white"
+                  ? "bg-[#363A3F] text-white"
                   : "bg-gray-100 text-gray-900"
               }
             `}

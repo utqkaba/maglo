@@ -9,6 +9,7 @@ import Transactions from "./pages/Transactions";
 import Invoices from "./pages/Invoices";
 import MyWallets from "./pages/MyWallets";
 import Settings from "./pages/Settings";
+import Help from "./pages/Help";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/invoices" element={<Invoices />} />
         <Route path="/wallets" element={<MyWallets />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/help" element={<Help />} />
       </Routes>
 
       {/* Global Toast Container */}
