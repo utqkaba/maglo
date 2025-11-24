@@ -6,13 +6,11 @@ export default function Header({ title = "Dashboard" }) {
 
   return (
     <header className="flex h-10 sm:h-12 lg:h-12 xl:h-13 shrink-0 items-center justify-between bg-white">
-      <h1 className="text-base sm:text-lg lg:text-2xl xl:text-3xl font-semibold truncate">
+      <h1 className="text-base sm:text-lg lg:text-2xl xl:text-3xl font-semibold truncate cursor-default">
         {title}
       </h1>
 
-      {/* Right Section */}
       <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 xl:gap-6">
-        {/* Search */}
         <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg transition">
           <Search
             size={16}
@@ -20,7 +18,6 @@ export default function Header({ title = "Dashboard" }) {
           />
         </button>
 
-        {/* Notifications */}
         <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg transition relative">
           <Bell
             size={16}
@@ -29,7 +26,6 @@ export default function Header({ title = "Dashboard" }) {
           <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-2 h-2 bg-red-500 rounded-full" />
         </button>
 
-        {/* User Menu */}
         <button className="flex items-center sm:gap-3 bg-gray-100 rounded-full px-2 py-1 transition">
           <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-linear-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white font-semibold text-xs sm:text-sm">
             {user?.fullName?.charAt(0)}
