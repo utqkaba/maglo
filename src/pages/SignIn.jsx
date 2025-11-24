@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import AuthFooter from "../components/AuthFooter";
 import { useLogin } from "../hooks/useAuth";
+import PageLoader from "../components/PageLoader"; // 🔥 EKLENDİ
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -37,14 +38,14 @@ export default function SignIn() {
     e.preventDefault();
     if (!validate()) return;
 
-    login({
-      email,
-      password,
-    });
+    login({ email, password });
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen relative">
+      {/* 🔥 Eğer login yapılıyorsa veya API pending ise show loader */}
+      {isPending && <PageLoader />}
+
       <div className="absolute top-10 left-34">
         <img src="/Logo.png" alt="Maglo Logo" className="w-30 h-7" />
       </div>
@@ -89,7 +90,7 @@ export default function SignIn() {
               disabled={isPending}
               icon="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
             >
-              Sign in with google
+              Sign in with Google
             </Button>
           </form>
 
