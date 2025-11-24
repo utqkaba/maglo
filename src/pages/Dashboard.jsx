@@ -1,6 +1,7 @@
 import DashboardLayout from "../layouts/DashboardLayout";
 import DashboardStats from "../components/DashboardStats";
 import RecentTransactions from "../components/RecentTransactions";
+import ScheduledTransfers from "../components/ScheduledTransfers";
 
 export default function Dashboard() {
   return (
@@ -47,10 +48,10 @@ export default function Dashboard() {
           </div>
 
           {/* ---------------- SAĞ SÜTUN ---------------- */}
-          <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4 sm:gap-5 lg:gap-7 xl:gap-8">
+          <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4 sm:gap-5 lg:gap-6">
             {/* Wallet */}
-            <section className="bg-white rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-5 lg:p-6 min-h-[280px] lg:min-h-[359px]">
-              <div className="flex justify-between items-center mb-4">
+            <section className="bg-white p-4 sm:p-5 lg:p-6 min-h-[280px] lg:min-h-[359px]">
+              <div className="flex justify-between items-center mb-1">
                 <h2 className="text-sm sm:text-base font-semibold">Wallet</h2>
                 <button className="text-gray-400 hover:text-gray-600">
                   •••
@@ -60,21 +61,8 @@ export default function Dashboard() {
                 Wallet content
               </div>
             </section>
-
             {/* Scheduled Transfers */}
-            <section className="bg-white rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-5 lg:p-6 min-h-[260px] lg:min-h-[350px]">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-sm sm:text-base font-semibold">
-                  Scheduled Transfers
-                </h2>
-                <button className="text-xs sm:text-sm text-(--color-view) flex items-center gap-1">
-                  View All <span className="ml-1 mb-1">{">"}</span>
-                </button>
-              </div>
-              <div className="h-48 sm:h-56 lg:h-64 flex items-center justify-center text-gray-300 text-xs sm:text-sm">
-                Transfers list
-              </div>
-            </section>
+            <ScheduledTransfers />
           </div>
         </div>
       </div>

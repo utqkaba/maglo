@@ -35,25 +35,30 @@ export default function RecentTransactions() {
   // Error state
   if (error) {
     return (
-      <section className="bg-white rounded-2xl shadow-sm p-6 min-h-[293px] flex items-center justify-center text-red-500 text-sm">
-        Unauthorized - Missing or invalid token.
+      <section className="bg-white rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-5 lg:p-6 min-h-[220px] lg:min-h-[293px] flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 text-sm font-medium mb-1">
+            {error?.message || "Failed to load transactions"}
+          </p>
+          <p className="text-gray-500 text-xs">Please try again later</p>
+        </div>
       </section>
     );
   }
 
   return (
-    <section className="bg-white rounded-2xl shadow-sm p-6 min-h-[293px]">
+    <section className="bg-white rounded-2xl p-6 min-h-[293px] border border-gray-100">
       <div className="flex justify-between items-center mb-5">
-        <h2 className="text-[15px] font-semibold text-gray-900">
+        <h2 className="text-sm font-semibold text-gray-900">
           Recent Transaction
         </h2>
-        <button className="flex items-center gap-1 text-(--color-view) text-[13px]">
+        <button className="flex items-center gap-1 text-(--color-view) text-sm">
           View All <span className="ml-1 mb-1">{">"}</span>
         </button>
       </div>
 
       {/* TABLE HEADER */}
-      <div className="grid grid-cols-[2fr_1fr_1fr_1fr] px-1 mb-3 text-[11px] font-medium text-gray-400">
+      <div className="grid grid-cols-[2fr_1fr_1fr_1fr] px-1 mb-3 text-xs font-medium text-gray-400">
         <span>NAME/BUSINESS</span>
         <span>TYPE</span>
         <span className="text-right">AMOUNT</span>
@@ -74,19 +79,17 @@ export default function RecentTransactions() {
               </div>
 
               <div>
-                <p className="text-[13px] font-medium text-gray-900">
-                  {row.name}
-                </p>
-                <p className="text-[11px] text-gray-400">{row.business}</p>
+                <p className="text-sm font-medium text-gray-900">{row.name}</p>
+                <p className="text-xs text-gray-400">{row.business}</p>
               </div>
             </div>
 
             {/* TYPE */}
-            <span className="text-[13px] text-gray-500">{row.type}</span>
+            <span className="text-sm text-gray-500">{row.type}</span>
 
             {/* AMOUNT */}
             <span
-              className={`text-[13px] font-semibold text-right ${
+              className={`text-sm font-semibold text-right ${
                 row.amount < 0 ? "text-red-500" : "text-green-600"
               }`}
             >
@@ -96,7 +99,7 @@ export default function RecentTransactions() {
             </span>
 
             {/* DATE */}
-            <span className="text-[11px] text-right text-gray-400">
+            <span className="text-xs text-right text-gray-400">
               {new Date(row.date).toLocaleDateString("en-GB", {
                 day: "2-digit",
                 month: "short",
