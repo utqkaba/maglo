@@ -5,6 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import Transactions from "./pages/Transactions";
+import Invoices from "./pages/Invoices";
+import MyWallets from "./pages/MyWallets";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -14,6 +18,10 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/invoices" element={<Invoices />} />
+        <Route path="/wallets" element={<MyWallets />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
 
       {/* Global Toast Container */}

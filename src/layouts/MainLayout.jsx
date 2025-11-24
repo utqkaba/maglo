@@ -1,7 +1,7 @@
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
-export default function DashboardLayout({ children, title }) {
+export default function MainLayout({ children, title }) {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <div className="flex w-full min-h-screen">
