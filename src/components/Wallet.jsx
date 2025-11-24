@@ -1,4 +1,31 @@
+import { useWallet } from "../hooks/useWallet";
+
 export default function Wallet() {
+  const { data, isLoading, error } = useWallet();
+
+  // ---- LOADING ----
+  if (isLoading) {
+    return (
+      <section className="bg-white min-h-[280px] lg:min-h-[359px] p-2">
+        <div className="h-[260px] max-w-[354px] mx-auto rounded-2xl bg-gray-100 animate-pulse" />
+      </section>
+    );
+  }
+
+  // ---- ERROR ----
+  if (error) {
+    return (
+      <section className="bg-white p-2 min-h-[280px] lg:min-h-[359px] flex items-center justify-center text-red-500">
+        Failed to load wallet.
+      </section>
+    );
+  }
+
+  // ---- API DATA ----
+  const card = data?.data?.cards?.[0];
+
+  if (!card) return null;
+
   return (
     <section className="bg-white min-h-[280px] lg:min-h-[359px]">
       <div className="flex justify-between items-center mb-4">
@@ -8,9 +35,9 @@ export default function Wallet() {
         </button>
       </div>
 
-      {/* Kartlar Container - Responsive */}
+      {/* Kartlar Container */}
       <div className="relative w-full mx-auto h-[260px] max-w-[354px]">
-        {/* ---- Siyah büyük kart ---- */}
+        {/* ---- Siyah Kart ---- */}
         <div
           className="
             rounded-2xl text-white px-4 sm:px-5 py-3 sm:py-4 
@@ -31,23 +58,23 @@ export default function Wallet() {
           />
 
           <p className="text-base text-white font-bold ml-2">
-            Maglo.
+            {card.bank.split("|")[0]}
             <span className="font-extralight text-gray-500 text-base mx-1">
               |
             </span>
             <span className="font-base text-gray-500 text-xs">
-              Universal Bank
+              {card.bank.split("|")[1]}
             </span>
           </p>
 
           <div className="mt-15 sm:mt-17 ml-2">
             <p className="tracking-wider sm:tracking-widest text-base sm:text-lg font-mono">
-              5495 7381 3759 2321
+              {card.cardNumber}
             </p>
           </div>
         </div>
 
-        {/* ---- Küçük blur beyaz kart ---- */}
+        {/* ---- Blur Beyaz Kart ---- */}
         <div
           className="
           absolute left-0 right-0 mx-auto
@@ -68,21 +95,28 @@ export default function Wallet() {
           />
 
           <p className="text-base text-white font-bold">
-            Maglo.
+            {card.bank.split("|")[0]}
             <span className="font-extralight text-base mx-1">|</span>
-            <span className="font-extralight text-xs">Commercial Bank</span>
+            <span className="font-extralight text-xs">
+              {card.bank.split("|")[1]}
+            </span>
           </p>
 
           <div className="mt-17 flex items-center justify-between">
             <div>
               <p className="tracking-wider text-lg font-mono text-gray-900">
-                859525248 ****
+                {card.cardNumber.replace(/\s/g, "").slice(0, -8) + "****"}
               </p>
-              <p className="text-sm font-mono text-gray-400 mt-1">09/25</p>
+              <p className="text-sm font-mono text-gray-400 mt-1">
+                {String(card.expiryMonth).padStart(2, "0")}/
+                {String(card.expiryYear).slice(-2)}
+              </p>
             </div>
 
             <div className="px-1 bg-violet-950 rounded-md mt-4">
-              <span className="text-xs font-bold text-white">VISA</span>
+              <span className="text-xs font-bold text-white uppercase">
+                {card.network}
+              </span>
             </div>
           </div>
         </div>
