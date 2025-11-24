@@ -49,7 +49,7 @@ export default function ScheduledTransfers() {
   return (
     <section className="bg-white p-2 min-h-[350px]">
       <div className="flex justify-between items-center mb-5">
-        <h2 className="text-[15px] font-semibold text-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900">
           Scheduled Transfers
         </h2>
         <button className="flex items-center gap-1 text-(--color-view) text-sm hover:text-teal-700">

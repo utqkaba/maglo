@@ -49,7 +49,7 @@ export default function RecentTransactions() {
   return (
     <section className="bg-white rounded-2xl p-6 min-h-[293px] border border-gray-100">
       <div className="flex justify-between items-center mb-5">
-        <h2 className="text-sm font-semibold text-gray-900">
+        <h2 className="text-lg font-semibold text-gray-900">
           Recent Transaction
         </h2>
         <button className="flex items-center gap-1 text-(--color-view) text-sm">
