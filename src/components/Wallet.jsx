@@ -3,7 +3,7 @@ import { useWallet } from "../hooks/useWallet";
 export default function Wallet() {
   const { data, isLoading, error } = useWallet();
 
-  // ---- LOADING ----
+  // Loading state
   if (isLoading) {
     return (
       <section className="bg-white min-h-[280px] lg:min-h-[359px] p-2">
@@ -12,7 +12,7 @@ export default function Wallet() {
     );
   }
 
-  // ---- ERROR ----
+  // Error state
   if (error) {
     return (
       <section className="bg-white p-2 min-h-[280px] lg:min-h-[359px] flex items-center justify-center text-red-500">
@@ -21,7 +21,6 @@ export default function Wallet() {
     );
   }
 
-  // ---- API DATA ----
   const card = data?.data?.cards?.[0];
 
   if (!card) return null;

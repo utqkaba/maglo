@@ -1,4 +1,4 @@
-import DashboardLayout from "../layouts/DashboardLayout";
+import MainLayout from "../layouts/MainLayout";
 import DashboardStats from "../components/DashboardStats";
 import RecentTransactions from "../components/RecentTransactions";
 import ScheduledTransfers from "../components/ScheduledTransfers";
@@ -7,7 +7,7 @@ import Wallet from "../components/Wallet";
 
 export default function Dashboard() {
   return (
-    <DashboardLayout title="Dashboard">
+    <MainLayout title="Dashboard">
       <div className="w-full max-w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-7 xl:gap-8">
           {/* ---------------- SOL SÜTUN ---------------- */}
@@ -24,6 +24,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </MainLayout>
   );
 }
