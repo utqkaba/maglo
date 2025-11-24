@@ -109,8 +109,8 @@ export default function DashboardStats() {
 
             <div className="flex flex-col leading-tight ml-1">
               <span
-                className={`text-xs sm:text-xs ${
-                  s.highlight ? "text-gray-400" : "text-gray-500"
+                className={`text-sm sm:text-sm ${
+                  s.highlight ? "text-gray-300" : "text-gray-400"
                 }`}
               >
                 {s.label}
