@@ -57,18 +57,18 @@ export default function RecentTransactions() {
         </button>
       </div>
 
-      <div className="grid grid-cols-[2fr_1fr_1fr_1fr] px-1 mb-3 text-xs font-medium text-gray-400">
-        <span>NAME/BUSINESS</span>
+      <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] px-1 mb-4 text-xs font-medium text-center text-gray-400">
+        <span className="text-left">NAME/BUSINESS</span>
         <span>TYPE</span>
-        <span className="text-right">AMOUNT</span>
-        <span className="text-right">DATE</span>
+        <span>AMOUNT</span>
+        <span>DATE</span>
       </div>
 
       <div className="space-y-4">
         {transactions.slice(0, 3).map((row) => (
           <div
             key={row.id}
-            className="grid grid-cols-[2fr_1fr_1fr_1fr] items-center pb-3 border-b border-gray-100 last:border-none"
+            className="grid grid-cols-[1.5fr_1fr_1fr_1fr] items-center pb-3 border-b border-gray-100 last:border-none"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden">
@@ -81,15 +81,17 @@ export default function RecentTransactions() {
               </div>
             </div>
 
-            <span className="text-sm text-gray-500">{row.type}</span>
+            <span className="text-sm text-gray-500 text-center">
+              {row.type}
+            </span>
 
-            <span className={`text-sm font-semibold text-right text-black`}>
+            <span className={`text-sm font-semibold text-center text-black`}>
               {row.amount < 0
                 ? `₺${Math.abs(row.amount).toFixed(2)}`
                 : `₺${row.amount.toFixed(2)}`}
             </span>
 
-            <span className="text-xs text-right text-gray-400">
+            <span className="text-xs text-center text-gray-400">
               {new Date(row.date).toLocaleDateString("en-GB", {
                 day: "2-digit",
                 month: "short",
