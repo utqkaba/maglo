@@ -9,7 +9,7 @@ This project was built as a front-end case study and focuses on clean architectu
 - Zustand (Global Auth Store)
 - React Query (API State / Caching)
 - Recharts (Working Capital Chart)
-- Lucide Icons
+- React Icons
 
 ---
 
