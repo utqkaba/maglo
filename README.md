@@ -36,3 +36,16 @@ npm run dev
 npm run build
 ```
 - The project runs at: http://localhost:5173
+
+## 📸 Screen Shots
+- Sign Up:
+  
+![sign up](public/magloSignUp.png)
+
+- Sign In:
+  
+![sign in](public/magloSignIn.png)
+
+- Dashboard:
+  
+![dashboard](public/magloDashboard.png)
